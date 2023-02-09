@@ -1,0 +1,44 @@
+spring.profiles.active: test
+spring.batch.job.names: ${job.name:NONE}
+---
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    # show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 500
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  h2:
+    console:
+      enabled: true
+    datasource:
+      uri: jdbc:h2:mem:test
+      driver-class-name: org.h2.Driver
+      username:
+      password:
+#  jpa:
+#    show-sql: true
+#    database-platform: org.hibernate.dialect.MySQL57Dialect
+---
+spring:
+  config:
+    activate:
+      on-profiles: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/batchApp?rewriteBatchedStatements=false&profileSQL=false&&maxQuerySizeToLog=999999
+    # logger=Slf4JLogger << 쿼리파라미터 옵션
+    username: root
+    password:
