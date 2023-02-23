@@ -73,7 +73,7 @@ public class ImageFilesController {
     @GetMapping("/image/attach/{fileId}")
     public ResponseEntity<Resource> downloadAttach(@PathVariable Long fileId) throws MalformedURLException {
         Image image = imageService.loadImage(fileId);
-        UrlResource resource = new UrlResource("file:" + image.getFullPath());
+        UrlResource resource = new UrlResource(image.getUrl());
         // url encoding 필요
         String filename = image.getFilename();
         String encodedFilename = URLEncoder.encode(filename, StandardCharsets.UTF_8);

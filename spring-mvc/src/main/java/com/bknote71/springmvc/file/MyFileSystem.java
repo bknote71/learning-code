@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class MyFileSystem {
-    public static UploadFile save(String fileDir, MultipartFile file) throws IOException {
+    public static UploadFile saveAsLocalFile(String fileDir, MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             return null;
         }
 
         String org = file.getOriginalFilename();
         String sto = createStoreFileName(org);
-        String fullPath = fileDir + sto;
-        Resource resource = new UrlResource("file:" +fullPath);
-        file.transferTo(new File(fullPath));
-        return new UploadFile(org, sto, fullPath, resource.contentLength());
+        String url = fileDir + sto;
+        Resource resource = new UrlResource(url);
+        file.transferTo(new File(url));
+        return new UploadFile(org, sto, url, resource.contentLength());
     }
 
     private static String createStoreFileName(String org) {

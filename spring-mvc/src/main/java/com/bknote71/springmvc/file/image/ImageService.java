@@ -2,8 +2,6 @@ package com.bknote71.springmvc.file.image;
 
 import com.bknote71.springmvc.file.MyFileSystem;
 import com.bknote71.springmvc.file.UploadFile;
-import com.bknote71.springmvc.file.image.Image;
-import com.bknote71.springmvc.file.image.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.core.io.Resource;
@@ -17,7 +15,7 @@ import java.net.MalformedURLException;
 @RequiredArgsConstructor
 @Service
 public class ImageService {
-    public static final String LOCATION = "/Users/bknote71/repository/learning-code/spring-mvc/img/";
+    public static final String LOCALFILE = "file:/Users/bknote71/repository/learning-code/spring-mvc/img/";
     private final ImageRepository imageRepository;
 
     public Image storeImageFile(MultipartFile file) throws IOException {
@@ -25,7 +23,7 @@ public class ImageService {
             throw new IllegalArgumentException("empty file");
         }
 
-        UploadFile uploadedFile = MyFileSystem.save(LOCATION, file);
+        UploadFile uploadedFile = MyFileSystem.saveAsLocalFile(LOCALFILE, file);
         Image image = new Image(
                 uploadedFile.getUploadFileName(),
                 uploadedFile.getStoreFileName(),
@@ -39,7 +37,7 @@ public class ImageService {
     public Resource loadImageResource(Long id) throws MalformedURLException {
         Image image = imageRepository.findById(id)
                 .orElseThrow(() -> new IllegalIdentifierException("id에 대응하는 이미지 파일이 없습니다."));
-        return new UrlResource("file:" + image.getFullPath());
+        return new UrlResource(image.getUrl());
     }
 
     public Image loadImage(Long id) {
