@@ -1,4 +1,4 @@
-package com.bknote71.springmvc.file;
+package com.bknote71.springmvc.file.image;
 
 
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 

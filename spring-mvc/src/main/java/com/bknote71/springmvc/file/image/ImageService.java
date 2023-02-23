@@ -1,5 +1,9 @@
-package com.bknote71.springmvc.file;
+package com.bknote71.springmvc.file.image;
 
+import com.bknote71.springmvc.file.MyFileSystem;
+import com.bknote71.springmvc.file.UploadFile;
+import com.bknote71.springmvc.file.image.Image;
+import com.bknote71.springmvc.file.image.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.core.io.Resource;

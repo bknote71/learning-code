@@ -1,4 +1,4 @@
-package com.bknote71.springmvc.file;
+package com.bknote71.springmvc.file.image;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
