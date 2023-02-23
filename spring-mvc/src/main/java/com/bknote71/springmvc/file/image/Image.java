@@ -19,12 +19,12 @@ public class Image {
     private String filename;
     private String storedFileName;
     private Long size; // byte 단위
-    private String url;
+    private String filePath;
 
-    public Image(String org, String storedFileName, Long size, String url) {
+    public Image(String org, String storedFileName, Long size, String filePath) {
         this.filename = org;
         this.storedFileName = storedFileName;
         this.size = size;
-        this.url = url;
+        this.filePath = filePath;
     }
 }

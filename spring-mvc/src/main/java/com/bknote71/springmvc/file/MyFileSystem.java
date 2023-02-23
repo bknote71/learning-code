@@ -16,10 +16,10 @@ public class MyFileSystem {
 
         String org = file.getOriginalFilename();
         String sto = createStoreFileName(org);
-        String url = fileDir + sto;
-        Resource resource = new UrlResource(url);
-        file.transferTo(new File(url));
-        return new UploadFile(org, sto, url, resource.contentLength());
+        String fullPath = fileDir + sto;
+        Resource resource = new UrlResource("file:" +fullPath);
+        file.transferTo(new File(fullPath));
+        return new UploadFile(org, sto, fullPath, resource.contentLength());
     }
 
     private static String createStoreFileName(String org) {

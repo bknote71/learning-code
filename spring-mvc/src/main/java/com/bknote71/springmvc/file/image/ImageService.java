@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 @RequiredArgsConstructor
 @Service
 public class ImageService {
-    public static final String LOCALFILE = "file:/Users/bknote71/repository/learning-code/spring-mvc/img/";
+    public static final String LOCALFILE = "/Users/bknote71/repository/learning-code/spring-mvc/img/";
     private final ImageRepository imageRepository;
 
     public Image storeImageFile(MultipartFile file) throws IOException {
@@ -37,7 +37,7 @@ public class ImageService {
     public Resource loadImageResource(Long id) throws MalformedURLException {
         Image image = imageRepository.findById(id)
                 .orElseThrow(() -> new IllegalIdentifierException("id에 대응하는 이미지 파일이 없습니다."));
-        return new UrlResource(image.getUrl());
+        return new UrlResource("file:" + image.getFilePath());
     }
 
     public Image loadImage(Long id) {

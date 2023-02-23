@@ -55,7 +55,7 @@ public class ImageFilesController {
     public @ResponseBody ResponseEntity<byte[]> downloadRawImageFile(@PathVariable Long fileId) throws IOException {
         Image image = imageService.loadImage(fileId);
         // fileInputStream은 "file:" << 써줄필요 없다.
-        InputStream is = new FileInputStream(image.getFullPath());
+        InputStream is = new FileInputStream(image.getFilePath());
         Assert.notNull(is, "해당 경로에는 파일이 존재하지 않습니다.");
         return ResponseEntity.ok(is.readAllBytes());
     }
@@ -73,7 +73,7 @@ public class ImageFilesController {
     @GetMapping("/image/attach/{fileId}")
     public ResponseEntity<Resource> downloadAttach(@PathVariable Long fileId) throws MalformedURLException {
         Image image = imageService.loadImage(fileId);
-        UrlResource resource = new UrlResource(image.getUrl());
+        UrlResource resource = new UrlResource("file:" + image.getFilePath());
         // url encoding 필요
         String filename = image.getFilename();
         String encodedFilename = URLEncoder.encode(filename, StandardCharsets.UTF_8);
