@@ -1,4 +1,4 @@
-package com.bknote71.springbootbatch.config;
+package com.bknote71.springbootbatch.config.chunk.processor;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
