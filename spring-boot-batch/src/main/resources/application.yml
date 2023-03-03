@@ -1,0 +1,27 @@
+spring.batch.job.names: ${job.name:NONE}
+
+spring:
+  profiles:
+    active: mysql
+
+---
+spring:
+  config:
+    activate:
+      on-profile: h2
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot_batch
+    username: root
+    password:

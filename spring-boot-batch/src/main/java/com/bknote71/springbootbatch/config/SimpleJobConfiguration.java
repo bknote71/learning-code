@@ -7,6 +7,7 @@ import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemReader;
@@ -28,6 +29,7 @@ public class SimpleJobConfiguration {
     @Bean
     public Job simpleJob() {
         return jobBuilderFactory.get("simpleJob")
+                .incrementer(new RunIdIncrementer())
                 .start(simpleStep(null, null))
                 .build();
     }
