@@ -1,4 +1,4 @@
-package com.bknote71.springbootbatch.domain;
+package com.bknote71.springbootbatch.domain.product;
 
 import lombok.Data;
 
