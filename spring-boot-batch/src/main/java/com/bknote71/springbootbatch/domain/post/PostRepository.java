@@ -2,6 +2,9 @@ package com.bknote71.springbootbatch.domain.post;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -9,6 +12,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -58,4 +63,16 @@ public class PostRepository {
                 .addValue("title", title);
         return jdbcTemplate.query(sql, param, MAPPER);
     }
+
+    public void save(Post post) {
+        String sql = """
+                insert into post(title, content)
+                values (:title, :content)                
+                """;
+        MapSqlParameterSource param = new MapSqlParameterSource()
+                .addValue("title", post.getTitle())
+                .addValue("content", post.getContent());
+        jdbcTemplate.update(sql, param);
+    }
+
 }

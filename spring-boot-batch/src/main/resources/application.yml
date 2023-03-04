@@ -22,7 +22,7 @@ spring:
       on-profile: mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/boot_batch?rewriteBatchedStatements=false&profileSQL=false&&maxQuerySizeToLog=999999
+    url: jdbc:mysql://localhost:3306/boot_batch?rewriteBatchedStatements=true&profileSQL=true&&maxQuerySizeToLog=999999
     username: root
     password:
   jpa:

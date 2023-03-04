@@ -30,13 +30,21 @@ public class DateInitializer {
         LocalDate max = LocalDate.of(2023, 3, 3);
 
         EasyRandom easyRandom = createdRandomPost(min, max);
-        int size = 100000;
+        int size = 100;
         List<Post> posts = IntStream.range(0, size)
                 .parallel()
                 .mapToObj(i -> easyRandom.nextObject(Post.class))
                 .toList();
 
         postRepository.bulkInsert(posts);
+    }
+
+    @Test
+    public void save_test() {
+        Post post = new Post("post", "post");
+        for (int i = 0; i < 3; ++i) {
+            postRepository.save(post);
+        }
     }
 
     EasyRandom createdRandomPost(LocalDate min, LocalDate max) {
