@@ -1,4 +1,4 @@
-package com.bknote71.springmvc.file.video;
+package com.bknote71.springmvcfile.file.video;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

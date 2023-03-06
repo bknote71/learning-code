@@ -1,9 +1,7 @@
-package com.bknote71.springmvc.file.video;
+package com.bknote71.springmvcfile.file.image;
 
-import com.bknote71.springmvc.file.MyFileSystem;
-import com.bknote71.springmvc.file.UploadFile;
-import com.bknote71.springmvc.file.image.Image;
-import com.bknote71.springmvc.file.image.ImageRepository;
+import com.bknote71.springmvcfile.file.MyFileSystem;
+import com.bknote71.springmvcfile.file.UploadFile;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.core.io.Resource;
@@ -16,34 +14,35 @@ import java.net.MalformedURLException;
 
 @RequiredArgsConstructor
 @Service
-public class VideoService {
-    public static final String LOCALFILE = "/Users/bknote71/repository/learning-code/spring-mvc/vdo/";
-    private final VideoRepository videoRepository;
+public class ImageService {
+    public static final String LOCALFILE = "/Users/bknote71/repository/learning-code/spring-mvc/img/";
+    private final ImageRepository imageRepository;
 
-    public Video storeVideoFile(MultipartFile file) throws IOException {
+    public Image storeImageFile(MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             throw new IllegalArgumentException("empty file");
         }
 
         UploadFile uploadedFile = MyFileSystem.saveAsLocalFile(LOCALFILE, file);
-        Video image = new Video(
+        Image image = new Image(
                 uploadedFile.getUploadFileName(),
                 uploadedFile.getStoreFileName(),
                 uploadedFile.getSize(),
                 uploadedFile.getFullPath()
-        );
-        Video savedVdo = videoRepository.save(image);
-        return savedVdo;
+                );
+        Image savedImg = imageRepository.save(image);
+        return savedImg;
     }
 
-    public Resource loadVideoResource(Long id) throws MalformedURLException {
-        Video video = videoRepository.findById(id)
+    public Resource loadImageResource(Long id) throws MalformedURLException {
+        Image image = imageRepository.findById(id)
                 .orElseThrow(() -> new IllegalIdentifierException("id에 대응하는 이미지 파일이 없습니다."));
-        return new UrlResource("file:" + video.getFilePath());
+        return new UrlResource("file:" + image.getFilePath());
     }
 
-    public Video loadVideo(Long id) {
-        return videoRepository.findById(id)
+    public Image loadImage(Long id) {
+        return imageRepository.findById(id)
                 .orElseThrow(() -> new IllegalIdentifierException("id에 대응하는 이미지 파일이 없습니다."));
     }
+
 }

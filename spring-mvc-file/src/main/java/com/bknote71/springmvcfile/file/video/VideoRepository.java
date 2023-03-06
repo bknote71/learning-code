@@ -1,4 +1,4 @@
-package com.bknote71.springmvc.file.video;
+package com.bknote71.springmvcfile.file.video;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
