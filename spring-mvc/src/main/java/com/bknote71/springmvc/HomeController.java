@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class HomeController {
 
     @GetMapping("/")
-    public @ResponseBody String index() {
+    public String index() {
         return "index";
     }
 
