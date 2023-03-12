@@ -1,0 +1,56 @@
+21:08:03.746 [main] INFO  com.bknote71.springbootlogback.SpringBootLogbackApplication - Starting SpringBootLogbackApplication using Java 17.0.6 on bknote71ui-MacBookPro.local with PID 43197 (/Users/bknote71/Downloads/spring-boot-logback/out/production/classes started by bknote71 in /Users/bknote71/Downloads/spring-boot-logback)
+21:08:03.747 [main] INFO  com.bknote71.springbootlogback.SpringBootLogbackApplication - The following 1 profile is active: "dev"
+21:08:04.205 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+21:08:04.210 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+21:08:04.210 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+21:08:04.211 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+21:08:04.252 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+21:08:04.252 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 482 ms
+21:08:04.422 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+21:08:04.433 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+21:08:04.439 [main] INFO  com.bknote71.springbootlogback.SpringBootLogbackApplication - Started SpringBootLogbackApplication in 0.92 seconds (JVM running for 1.095)
+21:08:12.089 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:08:12.089 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+21:08:12.089 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+21:08:12.099 [http-nio-8080-exec-1] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:12.099 [http-nio-8080-exec-1] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:12.099 [http-nio-8080-exec-1] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:15.513 [http-nio-8080-exec-2] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:15.513 [http-nio-8080-exec-2] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:15.513 [http-nio-8080-exec-2] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:16.297 [http-nio-8080-exec-3] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:16.298 [http-nio-8080-exec-3] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:16.298 [http-nio-8080-exec-3] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:16.819 [http-nio-8080-exec-4] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:16.819 [http-nio-8080-exec-4] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:16.819 [http-nio-8080-exec-4] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:17.338 [http-nio-8080-exec-5] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:17.338 [http-nio-8080-exec-5] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:17.338 [http-nio-8080-exec-5] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:17.737 [http-nio-8080-exec-6] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:17.737 [http-nio-8080-exec-6] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:17.737 [http-nio-8080-exec-6] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:18.170 [http-nio-8080-exec-7] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:18.170 [http-nio-8080-exec-7] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:18.171 [http-nio-8080-exec-7] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:18.599 [http-nio-8080-exec-8] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:18.599 [http-nio-8080-exec-8] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:18.599 [http-nio-8080-exec-8] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:19.012 [http-nio-8080-exec-9] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:19.013 [http-nio-8080-exec-9] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:19.013 [http-nio-8080-exec-9] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:19.446 [http-nio-8080-exec-10] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:19.446 [http-nio-8080-exec-10] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:19.446 [http-nio-8080-exec-10] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:19.877 [http-nio-8080-exec-1] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:19.878 [http-nio-8080-exec-1] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:19.878 [http-nio-8080-exec-1] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:20.304 [http-nio-8080-exec-2] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:20.304 [http-nio-8080-exec-2] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:20.304 [http-nio-8080-exec-2] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:20.750 [http-nio-8080-exec-3] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:20.751 [http-nio-8080-exec-3] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:20.751 [http-nio-8080-exec-3] INFO  com.bknote71.springbootlogback.LogbackController - logger info
+21:08:21.169 [http-nio-8080-exec-4] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:08:21.170 [http-nio-8080-exec-4] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:08:21.170 [http-nio-8080-exec-4] INFO  com.bknote71.springbootlogback.LogbackController - logger info

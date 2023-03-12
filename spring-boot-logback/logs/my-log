@@ -1,0 +1,3 @@
+21:09:33.702 [http-nio-8080-exec-8] ERROR com.bknote71.springbootlogback.LogbackController - logger error
+21:09:33.712 [http-nio-8080-exec-8] WARN  com.bknote71.springbootlogback.LogbackController - logger warn
+21:09:33.713 [http-nio-8080-exec-8] INFO  com.bknote71.springbootlogback.LogbackController - logger info

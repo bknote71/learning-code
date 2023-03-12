@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <!-- property: 사용할 변수명 지정 -->
+    <property name="LOG_ROOT" value="./logs" />
+    <property name="LOG_FILE_NAME" value="my-log" />
+    <property name="LOG_COMPRESS_FILE_NAME" value="my-compress-log" />
+
+    <!-- console file appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 출력 패턴 지정-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- rolling file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- current writing file: 현재 쓰기작업 중인 로그 파일 -->
+        <file>${LOG_ROOT}/${LOG_FILE_NAME}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 새롭게 생성하고 저장할 file name 패턴 (%d로 분단위, 초단위 조정 가능)-->
+            <!-- Size# 일 경우 %i 토큰이 필수이다. -->
+            <!-- Time# 일 경우 %d{} 토큰이 필수이다. -->
+            <fileNamePattern>${LOG_ROOT}/${LOG_FILE_NAME}.%d{yyyy-MM-dd_HH:mm}.%i.log</fileNamePattern>
+            <!-- 최대 파일을 몇일 저장할 것인지 -->
+            <maxHistory>10</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>10MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- use compress -->
+    <appender name="CFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ROOT}/${LOG_COMPRESS_FILE_NAME}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ROOT}/${LOG_COMPRESS_FILE_NAME}.%d{yyyy-MM-dd_HH:mm}.%i.gz</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>10MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- profile -->
+    <springProfile name="default">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="CFILE"/>
+        </root>
+    </springProfile>
+
+
+
+</configuration>
